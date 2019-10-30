@@ -1,4 +1,5 @@
 import openpyxl
+from openpyxl import Workbook
 import time
 from selenium import webdriver
 list_id=[]
@@ -27,10 +28,14 @@ def import_file(path_file):
 	file_sheet = file_xlsx.active #load file xlsx
 	for row_ in range(file_sheet.max_row + 1): #read all row 
 		value = file_sheet.cell(row = row_ + 1 ,column = 1).value #get value from row
-		listID.append(value)
-        
-	return listID
-
+		list_link.append(value)
+	return list_link
+def export_data(path_file_export,path_file_import):
+    export_file = Workbook()
+    sheet = export_file.active
+    for list_ in get_id(import_file(path_file_import)):
+        sheet.append(list_)
+    export_file.save(path_file_export)
 
 
 
