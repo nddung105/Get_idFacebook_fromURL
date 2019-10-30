@@ -1,4 +1,3 @@
-# Get_idFacebook_fromURL
 # *Code used to convert facebook url to facebook id*
 ### * Required:
   - python 3.7
